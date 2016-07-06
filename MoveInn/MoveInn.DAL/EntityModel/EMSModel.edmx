@@ -1,0 +1,2215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="event">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EventCategoryID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="event_category">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="event_participation">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProfileID" Type="int" Nullable="false" />
+          <Property Name="ParticipationCategoryID" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="event_setting">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EventID" Type="int" />
+          <Property Name="SettingID" Type="int" Nullable="false" />
+          <Property Name="SettingValue" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="module">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModuleCategoryID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="module_category">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="participation_category">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="post">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="ProfileID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PostContent" Type="nvarchar(max)" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
+          <Property Name="IsCommentEnabled" Type="bit" Nullable="false" />
+          <Property Name="Raters" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="float" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="post_category">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="post_comment">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="ProfileID" Type="int" Nullable="false" />
+          <Property Name="CommentDate" Type="datetime" Nullable="false" />
+          <Property Name="Author" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Website" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsSpam" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="post_notify">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="ProfileID" Type="int" Nullable="false" />
+          <Property Name="NotifyAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="post_tag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileID" Type="int" Nullable="false" />
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="profile">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ProfileCategoryID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="profile_category">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="profile_member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileID" Type="int" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="RequestedDate" Type="datetime" Nullable="false" />
+          <Property Name="IsAccepted" Type="bit" Nullable="false" />
+          <Property Name="AcceptedOn" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="profile_module">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileID" Type="int" Nullable="false" />
+          <Property Name="ModuleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="profile_setting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileID" Type="int" Nullable="false" />
+          <Property Name="SettingID" Type="int" Nullable="false" />
+          <Property Name="SettingValue" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="right">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="right_role">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="RightID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="setting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SettingCategoryID" Type="int" Nullable="false" />
+          <Property Name="SettingDatatypeID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DefaultValue" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsHidden" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="setting_category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="setting_datatype">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DataTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="EmailVerified" Type="bit" Nullable="false" />
+          <Property Name="Zip" Type="varchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AgreedToTermsDate" Type="datetime" />
+          <Property Name="LastLogonTime" Type="datetime" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_setting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="SettingID" Type="int" Nullable="false" />
+          <Property Name="SettingValue" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_event_event_category">
+          <End Role="event_category" Type="Self.event_category" Multiplicity="1" />
+          <End Role="event" Type="Self.event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="event_category">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="event">
+              <PropertyRef Name="EventCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_participation_participation_category">
+          <End Role="participation_category" Type="Self.participation_category" Multiplicity="1" />
+          <End Role="event_participation" Type="Self.event_participation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="participation_category">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="event_participation">
+              <PropertyRef Name="ParticipationCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_participation_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="event_participation" Type="Self.event_participation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="event_participation">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_setting_setting">
+          <End Role="setting" Type="Self.setting" Multiplicity="1" />
+          <End Role="event_setting" Type="Self.event_setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="setting">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="event_setting">
+              <PropertyRef Name="SettingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_settting_event">
+          <End Role="event" Type="Self.event" Multiplicity="0..1" />
+          <End Role="event_setting" Type="Self.event_setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="event">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="event_setting">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_module_category">
+          <End Role="module_category" Type="Self.module_category" Multiplicity="0..1" />
+          <End Role="module_category1" Type="Self.module_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="module_category">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="module_category1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_module_module_category">
+          <End Role="module_category" Type="Self.module_category" Multiplicity="1" />
+          <End Role="module" Type="Self.module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="module_category">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="module">
+              <PropertyRef Name="ModuleCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_comment_post">
+          <End Role="post" Type="Self.post" Multiplicity="1" />
+          <End Role="post_comment" Type="Self.post_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post_comment">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_comment_post_comment">
+          <End Role="post_comment" Type="Self.post_comment" Multiplicity="0..1" />
+          <End Role="post_comment1" Type="Self.post_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post_comment">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post_comment1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_comment_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="post_comment" Type="Self.post_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post_comment">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_notify_post">
+          <End Role="post" Type="Self.post" Multiplicity="1" />
+          <End Role="post_notify" Type="Self.post_notify" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post_notify">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_notify_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="post_notify" Type="Self.post_notify" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post_notify">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_post_category">
+          <End Role="post_category" Type="Self.post_category" Multiplicity="1" />
+          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post_category">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_tag_post">
+          <End Role="post" Type="Self.post" Multiplicity="1" />
+          <End Role="post_tag" Type="Self.post_tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post_tag">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_tag_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="post_tag" Type="Self.post_tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post_tag">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_member_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="profile_member" Type="Self.profile_member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="profile_member">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_member_profile1">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="profile_member" Type="Self.profile_member" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="profile_member">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_module_module">
+          <End Role="module" Type="Self.module" Multiplicity="1" />
+          <End Role="profile_module" Type="Self.profile_module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="module">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="profile_module">
+              <PropertyRef Name="ModuleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_module_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="profile_module" Type="Self.profile_module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="profile_module">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_profile_category">
+          <End Role="profile_category" Type="Self.profile_category" Multiplicity="1" />
+          <End Role="profile" Type="Self.profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile_category">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="profile">
+              <PropertyRef Name="ProfileCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_setting_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="profile_setting" Type="Self.profile_setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="profile_setting">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_setting_setting">
+          <End Role="setting" Type="Self.setting" Multiplicity="1" />
+          <End Role="profile_setting" Type="Self.profile_setting" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="setting">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="profile_setting">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="profile" Type="Self.profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="profile">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_setting_setting_category">
+          <End Role="setting_category" Type="Self.setting_category" Multiplicity="1" />
+          <End Role="setting" Type="Self.setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="setting_category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="setting">
+              <PropertyRef Name="SettingCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_setting_setting_datatype">
+          <End Role="setting_datatype" Type="Self.setting_datatype" Multiplicity="1" />
+          <End Role="setting" Type="Self.setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="setting_datatype">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="setting">
+              <PropertyRef Name="SettingDatatypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_role_role">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="user_role" Type="Self.user_role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="user_role">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_role_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="user_role" Type="Self.user_role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="user_role">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_setting_setting">
+          <End Role="setting" Type="Self.setting" Multiplicity="1" />
+          <End Role="user_setting" Type="Self.user_setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="setting">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="user_setting">
+              <PropertyRef Name="SettingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_setting_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="user_setting" Type="Self.user_setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="user_setting">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EMSModelStoreContainer">
+          <EntitySet Name="event" EntityType="Self.event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="event_category" EntityType="Self.event_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="event_participation" EntityType="Self.event_participation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="event_setting" EntityType="Self.event_setting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="module" EntityType="Self.module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="module_category" EntityType="Self.module_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="participation_category" EntityType="Self.participation_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="post" EntityType="Self.post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="post_category" EntityType="Self.post_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="post_comment" EntityType="Self.post_comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="post_notify" EntityType="Self.post_notify" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="post_tag" EntityType="Self.post_tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="profile" EntityType="Self.profile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="profile_category" EntityType="Self.profile_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="profile_member" EntityType="Self.profile_member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="profile_module" EntityType="Self.profile_module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="profile_setting" EntityType="Self.profile_setting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="right" EntityType="Self.right" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="right_role" EntityType="Self.right_role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="setting" EntityType="Self.setting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="setting_category" EntityType="Self.setting_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="setting_datatype" EntityType="Self.setting_datatype" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_role" EntityType="Self.user_role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_setting" EntityType="Self.user_setting" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_event_event_category" Association="Self.FK_event_event_category">
+            <End Role="event_category" EntitySet="event_category" />
+            <End Role="event" EntitySet="event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_participation_participation_category" Association="Self.FK_event_participation_participation_category">
+            <End Role="participation_category" EntitySet="participation_category" />
+            <End Role="event_participation" EntitySet="event_participation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_participation_profile" Association="Self.FK_event_participation_profile">
+            <End Role="profile" EntitySet="profile" />
+            <End Role="event_participation" EntitySet="event_participation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_setting_setting" Association="Self.FK_event_setting_setting">
+            <End Role="setting" EntitySet="setting" />
+            <End Role="event_setting" EntitySet="event_setting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_settting_event" Association="Self.FK_event_settting_event">
+            <End Role="event" EntitySet="event" />
+            <End Role="event_setting" EntitySet="event_setting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_module_category" Association="Self.FK_module_category">
+            <End Role="module_category" EntitySet="module_category" />
+            <End Role="module_category1" EntitySet="module_category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_module_module_category" Association="Self.FK_module_module_category">
+            <End Role="module_category" EntitySet="module_category" />
+            <End Role="module" EntitySet="module" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_comment_post" Association="Self.FK_post_comment_post">
+            <End Role="post" EntitySet="post" />
+            <End Role="post_comment" EntitySet="post_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_comment_post_comment" Association="Self.FK_post_comment_post_comment">
+            <End Role="post_comment" EntitySet="post_comment" />
+            <End Role="post_comment1" EntitySet="post_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_comment_profile" Association="Self.FK_post_comment_profile">
+            <End Role="profile" EntitySet="profile" />
+            <End Role="post_comment" EntitySet="post_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_notify_post" Association="Self.FK_post_notify_post">
+            <End Role="post" EntitySet="post" />
+            <End Role="post_notify" EntitySet="post_notify" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_notify_profile" Association="Self.FK_post_notify_profile">
+            <End Role="profile" EntitySet="profile" />
+            <End Role="post_notify" EntitySet="post_notify" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_post_category" Association="Self.FK_post_post_category">
+            <End Role="post_category" EntitySet="post_category" />
+            <End Role="post" EntitySet="post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_profile" Association="Self.FK_post_profile">
+            <End Role="profile" EntitySet="profile" />
+            <End Role="post" EntitySet="post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_tag_post" Association="Self.FK_post_tag_post">
+            <End Role="post" EntitySet="post" />
+            <End Role="post_tag" EntitySet="post_tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_tag_profile" Association="Self.FK_post_tag_profile">
+            <End Role="profile" EntitySet="profile" />
+            <End Role="post_tag" EntitySet="post_tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_member_profile" Association="Self.FK_profile_member_profile">
+            <End Role="profile" EntitySet="profile" />
+            <End Role="profile_member" EntitySet="profile_member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_member_profile1" Association="Self.FK_profile_member_profile1">
+            <End Role="profile" EntitySet="profile" />
+            <End Role="profile_member" EntitySet="profile_member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_module_module" Association="Self.FK_profile_module_module">
+            <End Role="module" EntitySet="module" />
+            <End Role="profile_module" EntitySet="profile_module" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_module_profile" Association="Self.FK_profile_module_profile">
+            <End Role="profile" EntitySet="profile" />
+            <End Role="profile_module" EntitySet="profile_module" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_profile_category" Association="Self.FK_profile_profile_category">
+            <End Role="profile_category" EntitySet="profile_category" />
+            <End Role="profile" EntitySet="profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_setting_profile" Association="Self.FK_profile_setting_profile">
+            <End Role="profile" EntitySet="profile" />
+            <End Role="profile_setting" EntitySet="profile_setting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_setting_setting" Association="Self.FK_profile_setting_setting">
+            <End Role="setting" EntitySet="setting" />
+            <End Role="profile_setting" EntitySet="profile_setting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_user" Association="Self.FK_profile_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="profile" EntitySet="profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_setting_setting_category" Association="Self.FK_setting_setting_category">
+            <End Role="setting_category" EntitySet="setting_category" />
+            <End Role="setting" EntitySet="setting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_setting_setting_datatype" Association="Self.FK_setting_setting_datatype">
+            <End Role="setting_datatype" EntitySet="setting_datatype" />
+            <End Role="setting" EntitySet="setting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_role_role" Association="Self.FK_user_role_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="user_role" EntitySet="user_role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_role_user" Association="Self.FK_user_role_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_role" EntitySet="user_role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_setting_setting" Association="Self.FK_user_setting_setting">
+            <End Role="setting" EntitySet="setting" />
+            <End Role="user_setting" EntitySet="user_setting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_setting_user" Association="Self.FK_user_setting_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_setting" EntitySet="user_setting" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="event">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="EventCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="event_category" Relationship="Self.FK_event_event_category" FromRole="event" ToRole="event_category" />
+          <NavigationProperty Name="event_setting" Relationship="Self.FK_event_settting_event" FromRole="event" ToRole="event_setting" />
+        </EntityType>
+        <EntityType Name="event_category">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="events" Relationship="Self.FK_event_event_category" FromRole="event_category" ToRole="event" />
+        </EntityType>
+        <EntityType Name="event_participation">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ProfileID" Type="Int32" Nullable="false" />
+          <Property Name="ParticipationCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="participation_category" Relationship="Self.FK_event_participation_participation_category" FromRole="event_participation" ToRole="participation_category" />
+          <NavigationProperty Name="profile" Relationship="Self.FK_event_participation_profile" FromRole="event_participation" ToRole="profile" />
+        </EntityType>
+        <EntityType Name="event_setting">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="EventID" Type="Int32" />
+          <Property Name="SettingID" Type="Int32" Nullable="false" />
+          <Property Name="SettingValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="event" Relationship="Self.FK_event_settting_event" FromRole="event_setting" ToRole="event" />
+          <NavigationProperty Name="setting" Relationship="Self.FK_event_setting_setting" FromRole="event_setting" ToRole="setting" />
+        </EntityType>
+        <EntityType Name="module">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ModuleCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="module_category" Relationship="Self.FK_module_module_category" FromRole="module" ToRole="module_category" />
+          <NavigationProperty Name="profile_module" Relationship="Self.FK_profile_module_module" FromRole="module" ToRole="profile_module" />
+        </EntityType>
+        <EntityType Name="module_category">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="modules" Relationship="Self.FK_module_module_category" FromRole="module_category" ToRole="module" />
+          <NavigationProperty Name="module_category1" Relationship="Self.FK_module_category" FromRole="module_category" ToRole="module_category1" />
+          <NavigationProperty Name="module_category2" Relationship="Self.FK_module_category" FromRole="module_category1" ToRole="module_category" />
+        </EntityType>
+        <EntityType Name="participation_category">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="event_participation" Relationship="Self.FK_event_participation_participation_category" FromRole="participation_category" ToRole="event_participation" />
+        </EntityType>
+        <EntityType Name="post">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ProfileID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PostContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsPublished" Type="Boolean" Nullable="false" />
+          <Property Name="IsCommentEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="Raters" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Double" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="post_comment" Relationship="Self.FK_post_comment_post" FromRole="post" ToRole="post_comment" />
+          <NavigationProperty Name="post_notify" Relationship="Self.FK_post_notify_post" FromRole="post" ToRole="post_notify" />
+          <NavigationProperty Name="post_category" Relationship="Self.FK_post_post_category" FromRole="post" ToRole="post_category" />
+          <NavigationProperty Name="profile" Relationship="Self.FK_post_profile" FromRole="post" ToRole="profile" />
+          <NavigationProperty Name="post_tag" Relationship="Self.FK_post_tag_post" FromRole="post" ToRole="post_tag" />
+        </EntityType>
+        <EntityType Name="post_category">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="posts" Relationship="Self.FK_post_post_category" FromRole="post_category" ToRole="post" />
+        </EntityType>
+        <EntityType Name="post_comment">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="PostID" Type="Int32" Nullable="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="ProfileID" Type="Int32" Nullable="false" />
+          <Property Name="CommentDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Author" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="IsSpam" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="post" Relationship="Self.FK_post_comment_post" FromRole="post_comment" ToRole="post" />
+          <NavigationProperty Name="post_comment1" Relationship="Self.FK_post_comment_post_comment" FromRole="post_comment" ToRole="post_comment1" />
+          <NavigationProperty Name="post_comment2" Relationship="Self.FK_post_comment_post_comment" FromRole="post_comment1" ToRole="post_comment" />
+          <NavigationProperty Name="profile" Relationship="Self.FK_post_comment_profile" FromRole="post_comment" ToRole="profile" />
+        </EntityType>
+        <EntityType Name="post_notify">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostID" Type="Int32" Nullable="false" />
+          <Property Name="ProfileID" Type="Int32" Nullable="false" />
+          <Property Name="NotifyAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="post" Relationship="Self.FK_post_notify_post" FromRole="post_notify" ToRole="post" />
+          <NavigationProperty Name="profile" Relationship="Self.FK_post_notify_profile" FromRole="post_notify" ToRole="profile" />
+        </EntityType>
+        <EntityType Name="post_tag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileID" Type="Int32" Nullable="false" />
+          <Property Name="PostID" Type="Int32" Nullable="false" />
+          <Property Name="Tag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="post" Relationship="Self.FK_post_tag_post" FromRole="post_tag" ToRole="post" />
+          <NavigationProperty Name="profile" Relationship="Self.FK_post_tag_profile" FromRole="post_tag" ToRole="profile" />
+        </EntityType>
+        <EntityType Name="profile">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ProfileCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="event_participation" Relationship="Self.FK_event_participation_profile" FromRole="profile" ToRole="event_participation" />
+          <NavigationProperty Name="posts" Relationship="Self.FK_post_profile" FromRole="profile" ToRole="post" />
+          <NavigationProperty Name="post_comment" Relationship="Self.FK_post_comment_profile" FromRole="profile" ToRole="post_comment" />
+          <NavigationProperty Name="post_notify" Relationship="Self.FK_post_notify_profile" FromRole="profile" ToRole="post_notify" />
+          <NavigationProperty Name="post_tag" Relationship="Self.FK_post_tag_profile" FromRole="profile" ToRole="post_tag" />
+          <NavigationProperty Name="profile_member" Relationship="Self.FK_profile_member_profile" FromRole="profile" ToRole="profile_member" />
+          <NavigationProperty Name="profile_member1" Relationship="Self.FK_profile_member_profile1" FromRole="profile" ToRole="profile_member" />
+          <NavigationProperty Name="profile_module" Relationship="Self.FK_profile_module_profile" FromRole="profile" ToRole="profile_module" />
+          <NavigationProperty Name="profile_category" Relationship="Self.FK_profile_profile_category" FromRole="profile" ToRole="profile_category" />
+          <NavigationProperty Name="profile_setting" Relationship="Self.FK_profile_setting_profile" FromRole="profile" ToRole="profile_setting" />
+          <NavigationProperty Name="user" Relationship="Self.FK_profile_user" FromRole="profile" ToRole="user" />
+        </EntityType>
+        <EntityType Name="profile_category">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="profiles" Relationship="Self.FK_profile_profile_category" FromRole="profile_category" ToRole="profile" />
+        </EntityType>
+        <EntityType Name="profile_member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileID" Type="Int32" Nullable="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="RequestedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsAccepted" Type="Boolean" Nullable="false" />
+          <Property Name="AcceptedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="profile" Relationship="Self.FK_profile_member_profile" FromRole="profile_member" ToRole="profile" />
+          <NavigationProperty Name="profile1" Relationship="Self.FK_profile_member_profile1" FromRole="profile_member" ToRole="profile" />
+        </EntityType>
+        <EntityType Name="profile_module">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileID" Type="Int32" Nullable="false" />
+          <Property Name="ModuleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="module" Relationship="Self.FK_profile_module_module" FromRole="profile_module" ToRole="module" />
+          <NavigationProperty Name="profile" Relationship="Self.FK_profile_module_profile" FromRole="profile_module" ToRole="profile" />
+        </EntityType>
+        <EntityType Name="profile_setting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileID" Type="Int32" Nullable="false" />
+          <Property Name="SettingID" Type="Int32" Nullable="false" />
+          <Property Name="SettingValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="profile" Relationship="Self.FK_profile_setting_profile" FromRole="profile_setting" ToRole="profile" />
+          <NavigationProperty Name="setting" Relationship="Self.FK_profile_setting_setting" FromRole="profile_setting" ToRole="setting" />
+        </EntityType>
+        <EntityType Name="right">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="right_role">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="RightID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="user_role" Relationship="Self.FK_user_role_role" FromRole="role" ToRole="user_role" />
+        </EntityType>
+        <EntityType Name="setting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SettingCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="SettingDatatypeID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DefaultValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsHidden" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="event_setting" Relationship="Self.FK_event_setting_setting" FromRole="setting" ToRole="event_setting" />
+          <NavigationProperty Name="profile_setting" Relationship="Self.FK_profile_setting_setting" FromRole="setting" ToRole="profile_setting" />
+          <NavigationProperty Name="setting_category" Relationship="Self.FK_setting_setting_category" FromRole="setting" ToRole="setting_category" />
+          <NavigationProperty Name="setting_datatype" Relationship="Self.FK_setting_setting_datatype" FromRole="setting" ToRole="setting_datatype" />
+          <NavigationProperty Name="user_setting" Relationship="Self.FK_user_setting_setting" FromRole="setting" ToRole="user_setting" />
+        </EntityType>
+        <EntityType Name="setting_category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="settings" Relationship="Self.FK_setting_setting_category" FromRole="setting_category" ToRole="setting" />
+        </EntityType>
+        <EntityType Name="setting_datatype">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="settings" Relationship="Self.FK_setting_setting_datatype" FromRole="setting_datatype" ToRole="setting" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="RowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="EmailVerified" Type="Boolean" Nullable="false" />
+          <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AgreedToTermsDate" Type="DateTime" Precision="3" />
+          <Property Name="LastLogonTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="profiles" Relationship="Self.FK_profile_user" FromRole="user" ToRole="profile" />
+          <NavigationProperty Name="user_role" Relationship="Self.FK_user_role_user" FromRole="user" ToRole="user_role" />
+          <NavigationProperty Name="user_setting" Relationship="Self.FK_user_setting_user" FromRole="user" ToRole="user_setting" />
+        </EntityType>
+        <EntityType Name="user_role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="role" Relationship="Self.FK_user_role_role" FromRole="user_role" ToRole="role" />
+          <NavigationProperty Name="user" Relationship="Self.FK_user_role_user" FromRole="user_role" ToRole="user" />
+        </EntityType>
+        <EntityType Name="user_setting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="SettingID" Type="Int32" Nullable="false" />
+          <Property Name="SettingValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="setting" Relationship="Self.FK_user_setting_setting" FromRole="user_setting" ToRole="setting" />
+          <NavigationProperty Name="user" Relationship="Self.FK_user_setting_user" FromRole="user_setting" ToRole="user" />
+        </EntityType>
+        <Association Name="FK_event_event_category">
+          <End Role="event_category" Type="Self.event_category" Multiplicity="1" />
+          <End Role="event" Type="Self.event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="event_category">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="event">
+              <PropertyRef Name="EventCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_settting_event">
+          <End Role="event" Type="Self.event" Multiplicity="0..1" />
+          <End Role="event_setting" Type="Self.event_setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="event">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="event_setting">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_participation_participation_category">
+          <End Role="participation_category" Type="Self.participation_category" Multiplicity="1" />
+          <End Role="event_participation" Type="Self.event_participation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="participation_category">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="event_participation">
+              <PropertyRef Name="ParticipationCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_participation_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="event_participation" Type="Self.event_participation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="event_participation">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_setting_setting">
+          <End Role="setting" Type="Self.setting" Multiplicity="1" />
+          <End Role="event_setting" Type="Self.event_setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="setting">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="event_setting">
+              <PropertyRef Name="SettingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_module_module_category">
+          <End Role="module_category" Type="Self.module_category" Multiplicity="1" />
+          <End Role="module" Type="Self.module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="module_category">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="module">
+              <PropertyRef Name="ModuleCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_module_module">
+          <End Role="module" Type="Self.module" Multiplicity="1" />
+          <End Role="profile_module" Type="Self.profile_module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="module">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="profile_module">
+              <PropertyRef Name="ModuleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_module_category">
+          <End Role="module_category" Type="Self.module_category" Multiplicity="0..1" />
+          <End Role="module_category1" Type="Self.module_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="module_category">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="module_category1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_comment_post">
+          <End Role="post" Type="Self.post" Multiplicity="1" />
+          <End Role="post_comment" Type="Self.post_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post_comment">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_notify_post">
+          <End Role="post" Type="Self.post" Multiplicity="1" />
+          <End Role="post_notify" Type="Self.post_notify" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post_notify">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_post_category">
+          <End Role="post_category" Type="Self.post_category" Multiplicity="1" />
+          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post_category">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_tag_post">
+          <End Role="post" Type="Self.post" Multiplicity="1" />
+          <End Role="post_tag" Type="Self.post_tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post_tag">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_comment_post_comment">
+          <End Role="post_comment" Type="Self.post_comment" Multiplicity="0..1" />
+          <End Role="post_comment1" Type="Self.post_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post_comment">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post_comment1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_comment_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="post_comment" Type="Self.post_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post_comment">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_notify_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="post_notify" Type="Self.post_notify" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post_notify">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_tag_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="post_tag" Type="Self.post_tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="post_tag">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_member_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="profile_member" Type="Self.profile_member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="profile_member">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_member_profile1">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="profile_member" Type="Self.profile_member" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="profile_member">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_module_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="profile_module" Type="Self.profile_module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="profile_module">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_profile_category">
+          <End Role="profile_category" Type="Self.profile_category" Multiplicity="1" />
+          <End Role="profile" Type="Self.profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile_category">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="profile">
+              <PropertyRef Name="ProfileCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_setting_profile">
+          <End Role="profile" Type="Self.profile" Multiplicity="1" />
+          <End Role="profile_setting" Type="Self.profile_setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="profile_setting">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="profile" Type="Self.profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="profile">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profile_setting_setting">
+          <End Role="setting" Type="Self.setting" Multiplicity="1" />
+          <End Role="profile_setting" Type="Self.profile_setting" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="setting">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="profile_setting">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_role_role">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="user_role" Type="Self.user_role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="user_role">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_setting_setting_category">
+          <End Role="setting_category" Type="Self.setting_category" Multiplicity="1" />
+          <End Role="setting" Type="Self.setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="setting_category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="setting">
+              <PropertyRef Name="SettingCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_setting_setting_datatype">
+          <End Role="setting_datatype" Type="Self.setting_datatype" Multiplicity="1" />
+          <End Role="setting" Type="Self.setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="setting_datatype">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="setting">
+              <PropertyRef Name="SettingDatatypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_setting_setting">
+          <End Role="setting" Type="Self.setting" Multiplicity="1" />
+          <End Role="user_setting" Type="Self.user_setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="setting">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="user_setting">
+              <PropertyRef Name="SettingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_role_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="user_role" Type="Self.user_role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="user_role">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_setting_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="user_setting" Type="Self.user_setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="RowID" />
+            </Principal>
+            <Dependent Role="user_setting">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="events" EntityType="Self.event" />
+          <EntitySet Name="event_category" EntityType="Self.event_category" />
+          <EntitySet Name="event_participation" EntityType="Self.event_participation" />
+          <EntitySet Name="event_setting" EntityType="Self.event_setting" />
+          <EntitySet Name="modules" EntityType="Self.module" />
+          <EntitySet Name="module_category" EntityType="Self.module_category" />
+          <EntitySet Name="participation_category" EntityType="Self.participation_category" />
+          <EntitySet Name="posts" EntityType="Self.post" />
+          <EntitySet Name="post_category" EntityType="Self.post_category" />
+          <EntitySet Name="post_comment" EntityType="Self.post_comment" />
+          <EntitySet Name="post_notify" EntityType="Self.post_notify" />
+          <EntitySet Name="post_tag" EntityType="Self.post_tag" />
+          <EntitySet Name="profiles" EntityType="Self.profile" />
+          <EntitySet Name="profile_category" EntityType="Self.profile_category" />
+          <EntitySet Name="profile_member" EntityType="Self.profile_member" />
+          <EntitySet Name="profile_module" EntityType="Self.profile_module" />
+          <EntitySet Name="profile_setting" EntityType="Self.profile_setting" />
+          <EntitySet Name="rights" EntityType="Self.right" />
+          <EntitySet Name="right_role" EntityType="Self.right_role" />
+          <EntitySet Name="roles" EntityType="Self.role" />
+          <EntitySet Name="settings" EntityType="Self.setting" />
+          <EntitySet Name="setting_category" EntityType="Self.setting_category" />
+          <EntitySet Name="setting_datatype" EntityType="Self.setting_datatype" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="user_role" EntityType="Self.user_role" />
+          <EntitySet Name="user_setting" EntityType="Self.user_setting" />
+          <AssociationSet Name="FK_event_event_category" Association="Self.FK_event_event_category">
+            <End Role="event_category" EntitySet="event_category" />
+            <End Role="event" EntitySet="events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_settting_event" Association="Self.FK_event_settting_event">
+            <End Role="event" EntitySet="events" />
+            <End Role="event_setting" EntitySet="event_setting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_participation_participation_category" Association="Self.FK_event_participation_participation_category">
+            <End Role="participation_category" EntitySet="participation_category" />
+            <End Role="event_participation" EntitySet="event_participation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_participation_profile" Association="Self.FK_event_participation_profile">
+            <End Role="profile" EntitySet="profiles" />
+            <End Role="event_participation" EntitySet="event_participation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_setting_setting" Association="Self.FK_event_setting_setting">
+            <End Role="setting" EntitySet="settings" />
+            <End Role="event_setting" EntitySet="event_setting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_module_module_category" Association="Self.FK_module_module_category">
+            <End Role="module_category" EntitySet="module_category" />
+            <End Role="module" EntitySet="modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_module_module" Association="Self.FK_profile_module_module">
+            <End Role="module" EntitySet="modules" />
+            <End Role="profile_module" EntitySet="profile_module" />
+          </AssociationSet>
+          <AssociationSet Name="FK_module_category" Association="Self.FK_module_category">
+            <End Role="module_category" EntitySet="module_category" />
+            <End Role="module_category1" EntitySet="module_category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_comment_post" Association="Self.FK_post_comment_post">
+            <End Role="post" EntitySet="posts" />
+            <End Role="post_comment" EntitySet="post_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_notify_post" Association="Self.FK_post_notify_post">
+            <End Role="post" EntitySet="posts" />
+            <End Role="post_notify" EntitySet="post_notify" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_post_category" Association="Self.FK_post_post_category">
+            <End Role="post_category" EntitySet="post_category" />
+            <End Role="post" EntitySet="posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_profile" Association="Self.FK_post_profile">
+            <End Role="profile" EntitySet="profiles" />
+            <End Role="post" EntitySet="posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_tag_post" Association="Self.FK_post_tag_post">
+            <End Role="post" EntitySet="posts" />
+            <End Role="post_tag" EntitySet="post_tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_comment_post_comment" Association="Self.FK_post_comment_post_comment">
+            <End Role="post_comment" EntitySet="post_comment" />
+            <End Role="post_comment1" EntitySet="post_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_comment_profile" Association="Self.FK_post_comment_profile">
+            <End Role="profile" EntitySet="profiles" />
+            <End Role="post_comment" EntitySet="post_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_notify_profile" Association="Self.FK_post_notify_profile">
+            <End Role="profile" EntitySet="profiles" />
+            <End Role="post_notify" EntitySet="post_notify" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_tag_profile" Association="Self.FK_post_tag_profile">
+            <End Role="profile" EntitySet="profiles" />
+            <End Role="post_tag" EntitySet="post_tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_member_profile" Association="Self.FK_profile_member_profile">
+            <End Role="profile" EntitySet="profiles" />
+            <End Role="profile_member" EntitySet="profile_member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_member_profile1" Association="Self.FK_profile_member_profile1">
+            <End Role="profile" EntitySet="profiles" />
+            <End Role="profile_member" EntitySet="profile_member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_module_profile" Association="Self.FK_profile_module_profile">
+            <End Role="profile" EntitySet="profiles" />
+            <End Role="profile_module" EntitySet="profile_module" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_profile_category" Association="Self.FK_profile_profile_category">
+            <End Role="profile_category" EntitySet="profile_category" />
+            <End Role="profile" EntitySet="profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_setting_profile" Association="Self.FK_profile_setting_profile">
+            <End Role="profile" EntitySet="profiles" />
+            <End Role="profile_setting" EntitySet="profile_setting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_user" Association="Self.FK_profile_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="profile" EntitySet="profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profile_setting_setting" Association="Self.FK_profile_setting_setting">
+            <End Role="setting" EntitySet="settings" />
+            <End Role="profile_setting" EntitySet="profile_setting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_role_role" Association="Self.FK_user_role_role">
+            <End Role="role" EntitySet="roles" />
+            <End Role="user_role" EntitySet="user_role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_setting_setting_category" Association="Self.FK_setting_setting_category">
+            <End Role="setting_category" EntitySet="setting_category" />
+            <End Role="setting" EntitySet="settings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_setting_setting_datatype" Association="Self.FK_setting_setting_datatype">
+            <End Role="setting_datatype" EntitySet="setting_datatype" />
+            <End Role="setting" EntitySet="settings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_setting_setting" Association="Self.FK_user_setting_setting">
+            <End Role="setting" EntitySet="settings" />
+            <End Role="user_setting" EntitySet="user_setting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_role_user" Association="Self.FK_user_role_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="user_role" EntitySet="user_role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_setting_user" Association="Self.FK_user_setting_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="user_setting" EntitySet="user_setting" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EMSModelStoreContainer" CdmEntityContainer="EMSEntities">
+          <EntitySetMapping Name="events">
+            <EntityTypeMapping TypeName="EMSModel.event">
+              <MappingFragment StoreEntitySet="event">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EventCategoryID" ColumnName="EventCategoryID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="event_category">
+            <EntityTypeMapping TypeName="EMSModel.event_category">
+              <MappingFragment StoreEntitySet="event_category">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="event_participation">
+            <EntityTypeMapping TypeName="EMSModel.event_participation">
+              <MappingFragment StoreEntitySet="event_participation">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="ParticipationCategoryID" ColumnName="ParticipationCategoryID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="event_setting">
+            <EntityTypeMapping TypeName="EMSModel.event_setting">
+              <MappingFragment StoreEntitySet="event_setting">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="SettingID" ColumnName="SettingID" />
+                <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="modules">
+            <EntityTypeMapping TypeName="EMSModel.module">
+              <MappingFragment StoreEntitySet="module">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ModuleCategoryID" ColumnName="ModuleCategoryID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="module_category">
+            <EntityTypeMapping TypeName="EMSModel.module_category">
+              <MappingFragment StoreEntitySet="module_category">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="participation_category">
+            <EntityTypeMapping TypeName="EMSModel.participation_category">
+              <MappingFragment StoreEntitySet="participation_category">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="posts">
+            <EntityTypeMapping TypeName="EMSModel.post">
+              <MappingFragment StoreEntitySet="post">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PostContent" ColumnName="PostContent" />
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+                <ScalarProperty Name="IsCommentEnabled" ColumnName="IsCommentEnabled" />
+                <ScalarProperty Name="Raters" ColumnName="Raters" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="post_category">
+            <EntityTypeMapping TypeName="EMSModel.post_category">
+              <MappingFragment StoreEntitySet="post_category">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="post_comment">
+            <EntityTypeMapping TypeName="EMSModel.post_comment">
+              <MappingFragment StoreEntitySet="post_comment">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="IsSpam" ColumnName="IsSpam" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="post_notify">
+            <EntityTypeMapping TypeName="EMSModel.post_notify">
+              <MappingFragment StoreEntitySet="post_notify">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="NotifyAddress" ColumnName="NotifyAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="post_tag">
+            <EntityTypeMapping TypeName="EMSModel.post_tag">
+              <MappingFragment StoreEntitySet="post_tag">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="profiles">
+            <EntityTypeMapping TypeName="EMSModel.profile">
+              <MappingFragment StoreEntitySet="profile">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ProfileCategoryID" ColumnName="ProfileCategoryID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="profile_category">
+            <EntityTypeMapping TypeName="EMSModel.profile_category">
+              <MappingFragment StoreEntitySet="profile_category">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="profile_member">
+            <EntityTypeMapping TypeName="EMSModel.profile_member">
+              <MappingFragment StoreEntitySet="profile_member">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RequestedDate" ColumnName="RequestedDate" />
+                <ScalarProperty Name="IsAccepted" ColumnName="IsAccepted" />
+                <ScalarProperty Name="AcceptedOn" ColumnName="AcceptedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="profile_module">
+            <EntityTypeMapping TypeName="EMSModel.profile_module">
+              <MappingFragment StoreEntitySet="profile_module">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="profile_setting">
+            <EntityTypeMapping TypeName="EMSModel.profile_setting">
+              <MappingFragment StoreEntitySet="profile_setting">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="SettingID" ColumnName="SettingID" />
+                <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rights">
+            <EntityTypeMapping TypeName="EMSModel.right">
+              <MappingFragment StoreEntitySet="right">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="right_role">
+            <EntityTypeMapping TypeName="EMSModel.right_role">
+              <MappingFragment StoreEntitySet="right_role">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RightID" ColumnName="RightID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="EMSModel.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="settings">
+            <EntityTypeMapping TypeName="EMSModel.setting">
+              <MappingFragment StoreEntitySet="setting">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SettingCategoryID" ColumnName="SettingCategoryID" />
+                <ScalarProperty Name="SettingDatatypeID" ColumnName="SettingDatatypeID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+                <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="setting_category">
+            <EntityTypeMapping TypeName="EMSModel.setting_category">
+              <MappingFragment StoreEntitySet="setting_category">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="setting_datatype">
+            <EntityTypeMapping TypeName="EMSModel.setting_datatype">
+              <MappingFragment StoreEntitySet="setting_datatype">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DataTypeName" ColumnName="DataTypeName" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="EMSModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="EMSModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailVerified" ColumnName="EmailVerified" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="AgreedToTermsDate" ColumnName="AgreedToTermsDate" />
+                <ScalarProperty Name="LastLogonTime" ColumnName="LastLogonTime" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_role">
+            <EntityTypeMapping TypeName="EMSModel.user_role">
+              <MappingFragment StoreEntitySet="user_role">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_setting">
+            <EntityTypeMapping TypeName="EMSModel.user_setting">
+              <MappingFragment StoreEntitySet="user_setting">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="SettingID" ColumnName="SettingID" />
+                <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

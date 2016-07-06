@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6daa4b7e34974a4fa33abcafbb45967d" Name="Diagram1">
+        <EntityTypeShape EntityType="EMSModel.event" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.event_category" Width="1.5" PointX="8.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.event_participation" Width="1.5" PointX="8.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.event_setting" Width="1.5" PointX="13.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.module" Width="1.5" PointX="3" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.module_category" Width="1.5" PointX="0.75" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.participation_category" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.post" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.post_category" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.post_comment" Width="1.5" PointX="10.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.post_notify" Width="1.5" PointX="13.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.post_tag" Width="1.5" PointX="13.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.profile" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.profile_category" Width="1.5" PointX="0.75" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.profile_member" Width="1.5" PointX="5.25" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.profile_module" Width="1.5" PointX="5.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.profile_setting" Width="1.5" PointX="8.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.right" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.right_role" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.role" Width="1.5" PointX="3.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.setting" Width="1.5" PointX="3.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.setting_category" Width="1.5" PointX="1.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.setting_datatype" Width="1.5" PointX="1.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.sysdiagram" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.user" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.user_role" Width="1.5" PointX="6" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMSModel.user_setting" Width="1.5" PointX="6" PointY="12.875" IsExpanded="true" />
+        <AssociationConnector Association="EMSModel.FK_event_event_category" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_event_settting_event" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_event_participation_participation_category" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_event_participation_profile" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_event_setting_setting" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_module_module_category" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_profile_module_module" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_module_category" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_post_comment_post" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_post_notify_post" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_post_post_category" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_post_profile" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_post_tag_post" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_post_comment_post_comment" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_post_comment_profile" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_post_notify_profile" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_post_tag_profile" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_profile_member_profile" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_profile_member_profile1" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_profile_module_profile" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_profile_profile_category" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_profile_setting_profile" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_profile_user" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_profile_setting_setting" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_user_role_role" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_setting_setting_category" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_setting_setting_datatype" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_user_setting_setting" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_user_role_user" ManuallyRouted="false" />
+        <AssociationConnector Association="EMSModel.FK_user_setting_user" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

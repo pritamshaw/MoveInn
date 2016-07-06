@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveInn.DAL", "MoveInn.DAL\MoveInn.DAL.csproj", "{24799AEF-E2AF-4F94-A9FC-29AEE32C5A51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveInn.BAL", "MoveInn.BAL\MoveInn.BAL.csproj", "{40C63EE7-482F-4035-A14D-0F3B47723175}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveInn.UI", "MoveInn.UI\MoveInn.UI.csproj", "{B77A79E9-9C12-4095-9B81-9A1705A1D815}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveInn.UI.Tests", "MoveInn.UI.Tests\MoveInn.UI.Tests.csproj", "{01A3A63A-7F3E-4AD2-86E4-860F06B68EED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveInn.WebSecurity", "MoveInn.WebSecurity\MoveInn.WebSecurity.csproj", "{FD7FEA18-DFFD-4678-9159-E47904CE0A2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveInn.Web", "MoveInn.Web\MoveInn.Web.csproj", "{F5EEC767-947F-4895-A113-D9D8FB0E51C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveInn.Web.Tests", "MoveInn.Web.Tests\MoveInn.Web.Tests.csproj", "{21020ECB-9556-49CC-BD09-7A4E04A66334}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24799AEF-E2AF-4F94-A9FC-29AEE32C5A51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24799AEF-E2AF-4F94-A9FC-29AEE32C5A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24799AEF-E2AF-4F94-A9FC-29AEE32C5A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24799AEF-E2AF-4F94-A9FC-29AEE32C5A51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40C63EE7-482F-4035-A14D-0F3B47723175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40C63EE7-482F-4035-A14D-0F3B47723175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40C63EE7-482F-4035-A14D-0F3B47723175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40C63EE7-482F-4035-A14D-0F3B47723175}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B77A79E9-9C12-4095-9B81-9A1705A1D815}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B77A79E9-9C12-4095-9B81-9A1705A1D815}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B77A79E9-9C12-4095-9B81-9A1705A1D815}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B77A79E9-9C12-4095-9B81-9A1705A1D815}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01A3A63A-7F3E-4AD2-86E4-860F06B68EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01A3A63A-7F3E-4AD2-86E4-860F06B68EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01A3A63A-7F3E-4AD2-86E4-860F06B68EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01A3A63A-7F3E-4AD2-86E4-860F06B68EED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD7FEA18-DFFD-4678-9159-E47904CE0A2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD7FEA18-DFFD-4678-9159-E47904CE0A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD7FEA18-DFFD-4678-9159-E47904CE0A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD7FEA18-DFFD-4678-9159-E47904CE0A2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5EEC767-947F-4895-A113-D9D8FB0E51C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5EEC767-947F-4895-A113-D9D8FB0E51C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5EEC767-947F-4895-A113-D9D8FB0E51C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5EEC767-947F-4895-A113-D9D8FB0E51C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21020ECB-9556-49CC-BD09-7A4E04A66334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21020ECB-9556-49CC-BD09-7A4E04A66334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21020ECB-9556-49CC-BD09-7A4E04A66334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21020ECB-9556-49CC-BD09-7A4E04A66334}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

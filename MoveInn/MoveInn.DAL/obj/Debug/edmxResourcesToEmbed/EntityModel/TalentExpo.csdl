@@ -1,0 +1,539 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TalentExpoModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TalentExpoEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="categories" EntityType="TalentExpoModel.category" />
+    <EntitySet Name="events" EntityType="TalentExpoModel.event" />
+    <EntitySet Name="event_category" EntityType="TalentExpoModel.event_category" />
+    <EntitySet Name="event_participation" EntityType="TalentExpoModel.event_participation" />
+    <EntitySet Name="event_setting" EntityType="TalentExpoModel.event_setting" />
+    <EntitySet Name="participation_category" EntityType="TalentExpoModel.participation_category" />
+    <EntitySet Name="posts" EntityType="TalentExpoModel.post" />
+    <EntitySet Name="post_category" EntityType="TalentExpoModel.post_category" />
+    <EntitySet Name="post_comment" EntityType="TalentExpoModel.post_comment" />
+    <EntitySet Name="post_notify" EntityType="TalentExpoModel.post_notify" />
+    <EntitySet Name="post_tag" EntityType="TalentExpoModel.post_tag" />
+    <EntitySet Name="profiles" EntityType="TalentExpoModel.profile" />
+    <EntitySet Name="profile_category" EntityType="TalentExpoModel.profile_category" />
+    <EntitySet Name="profile_member" EntityType="TalentExpoModel.profile_member" />
+    <EntitySet Name="profile_setting" EntityType="TalentExpoModel.profile_setting" />
+    <EntitySet Name="profile_talent" EntityType="TalentExpoModel.profile_talent" />
+    <EntitySet Name="rights" EntityType="TalentExpoModel.right" />
+    <EntitySet Name="right_role" EntityType="TalentExpoModel.right_role" />
+    <EntitySet Name="roles" EntityType="TalentExpoModel.role" />
+    <EntitySet Name="settings" EntityType="TalentExpoModel.setting" />
+    <EntitySet Name="setting_category" EntityType="TalentExpoModel.setting_category" />
+    <EntitySet Name="setting_datatype" EntityType="TalentExpoModel.setting_datatype" />
+    <EntitySet Name="talents" EntityType="TalentExpoModel.talent" />
+    <EntitySet Name="users" EntityType="TalentExpoModel.user" />
+    <EntitySet Name="user_role" EntityType="TalentExpoModel.user_role" />
+    <EntitySet Name="user_setting" EntityType="TalentExpoModel.user_setting" />
+    <AssociationSet Name="FK_category_category" Association="TalentExpoModel.FK_category_category">
+      <End Role="category" EntitySet="categories" />
+      <End Role="category1" EntitySet="categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_post_category_category" Association="TalentExpoModel.FK_post_category_category">
+      <End Role="category" EntitySet="categories" />
+      <End Role="post_category" EntitySet="post_category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_post_comment_Post" Association="TalentExpoModel.FK_post_comment_Post">
+      <End Role="post" EntitySet="posts" />
+      <End Role="post_comment" EntitySet="post_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_post_profile" Association="TalentExpoModel.FK_post_profile">
+      <End Role="profile" EntitySet="profiles" />
+      <End Role="post" EntitySet="posts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_post_tag_Post" Association="TalentExpoModel.FK_post_tag_Post">
+      <End Role="post" EntitySet="posts" />
+      <End Role="post_tag" EntitySet="post_tag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_post_comment_post_comment" Association="TalentExpoModel.FK_post_comment_post_comment">
+      <End Role="post_comment" EntitySet="post_comment" />
+      <End Role="post_comment1" EntitySet="post_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_post_comment_profile" Association="TalentExpoModel.FK_post_comment_profile">
+      <End Role="profile" EntitySet="profiles" />
+      <End Role="post_comment" EntitySet="post_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_post_tag_profile" Association="TalentExpoModel.FK_post_tag_profile">
+      <End Role="profile" EntitySet="profiles" />
+      <End Role="post_tag" EntitySet="post_tag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_profile_profile_category" Association="TalentExpoModel.FK_profile_profile_category">
+      <End Role="profile_category" EntitySet="profile_category" />
+      <End Role="profile" EntitySet="profiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_profile_user" Association="TalentExpoModel.FK_profile_user">
+      <End Role="user" EntitySet="users" />
+      <End Role="profile" EntitySet="profiles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="CategoryRowID" />
+    </Key>
+    <Property Name="CategoryRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="Guid" Nullable="false" />
+    <Property Name="ParentID" Type="Int32" />
+    <Property Name="Category1" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="category11" Relationship="TalentExpoModel.FK_category_category" FromRole="category" ToRole="category1" />
+    <NavigationProperty Name="category2" Relationship="TalentExpoModel.FK_category_category" FromRole="category1" ToRole="category" />
+    <NavigationProperty Name="post_category" Relationship="TalentExpoModel.FK_post_category_category" FromRole="category" ToRole="post_category" />
+  </EntityType>
+  <EntityType Name="event">
+    <Key>
+      <PropertyRef Name="EventRowID" />
+    </Key>
+    <Property Name="EventRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="EventID" Type="Guid" Nullable="false" />
+    <Property Name="EventCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="EventName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="event_category">
+    <Key>
+      <PropertyRef Name="EventCategoryRowID" />
+    </Key>
+    <Property Name="EventCategoryRowID" Type="Int32" Nullable="false" />
+    <Property Name="EventCategoryID" Type="Guid" Nullable="false" />
+    <Property Name="EventCategory" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="event_participation">
+    <Key>
+      <PropertyRef Name="EventParticiationRowID" />
+    </Key>
+    <Property Name="EventParticiationRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="EventParticiationID" Type="Guid" Nullable="false" />
+    <Property Name="ProfileID" Type="Int32" Nullable="false" />
+    <Property Name="ParticipationCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="event_setting">
+    <Key>
+      <PropertyRef Name="EventSettingID" />
+    </Key>
+    <Property Name="EventSettingID" Type="Int32" Nullable="false" />
+    <Property Name="EventID" Type="Guid" Nullable="false" />
+    <Property Name="SettingID" Type="Int32" Nullable="false" />
+    <Property Name="SettingValue" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="participation_category">
+    <Key>
+      <PropertyRef Name="ParticipationCategoryRowID" />
+    </Key>
+    <Property Name="ParticipationCategoryRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ParticipationCategoryID" Type="Guid" Nullable="false" />
+    <Property Name="ParticipationCategory" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="post">
+    <Key>
+      <PropertyRef Name="PostRowID" />
+    </Key>
+    <Property Name="PostRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="PostID" Type="Guid" Nullable="false" />
+    <Property Name="ProfileID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="PostContent" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="IsPublished" Type="Boolean" Nullable="false" />
+    <Property Name="IsCommentEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="Raters" Type="Int32" Nullable="false" />
+    <Property Name="Rating" Type="Double" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="post_comment" Relationship="TalentExpoModel.FK_post_comment_Post" FromRole="post" ToRole="post_comment" />
+    <NavigationProperty Name="profile" Relationship="TalentExpoModel.FK_post_profile" FromRole="post" ToRole="profile" />
+    <NavigationProperty Name="post_tag" Relationship="TalentExpoModel.FK_post_tag_Post" FromRole="post" ToRole="post_tag" />
+  </EntityType>
+  <EntityType Name="post_category">
+    <Key>
+      <PropertyRef Name="PostCategoryRowID" />
+    </Key>
+    <Property Name="PostCategoryRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="PostCategoryID" Type="Guid" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="category" Relationship="TalentExpoModel.FK_post_category_category" FromRole="post_category" ToRole="category" />
+  </EntityType>
+  <EntityType Name="post_comment">
+    <Key>
+      <PropertyRef Name="PostCommentRowID" />
+    </Key>
+    <Property Name="PostCommentRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="PostCommentID" Type="Guid" Nullable="false" />
+    <Property Name="PostID" Type="Int32" Nullable="false" />
+    <Property Name="ParentID" Type="Int32" />
+    <Property Name="ProfileID" Type="Int32" Nullable="false" />
+    <Property Name="CommentDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Author" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Website" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Comment" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Country" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IP" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+    <Property Name="IsSpam" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="post" Relationship="TalentExpoModel.FK_post_comment_Post" FromRole="post_comment" ToRole="post" />
+    <NavigationProperty Name="post_comment1" Relationship="TalentExpoModel.FK_post_comment_post_comment" FromRole="post_comment" ToRole="post_comment1" />
+    <NavigationProperty Name="post_comment2" Relationship="TalentExpoModel.FK_post_comment_post_comment" FromRole="post_comment1" ToRole="post_comment" />
+    <NavigationProperty Name="profile" Relationship="TalentExpoModel.FK_post_comment_profile" FromRole="post_comment" ToRole="profile" />
+  </EntityType>
+  <EntityType Name="post_notify">
+    <Key>
+      <PropertyRef Name="PostNotifyID" />
+    </Key>
+    <Property Name="PostNotifyID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="PostID" Type="Int32" Nullable="false" />
+    <Property Name="ProfileID" Type="Int32" Nullable="false" />
+    <Property Name="NotifyAddress" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="post_tag">
+    <Key>
+      <PropertyRef Name="PostTagID" />
+    </Key>
+    <Property Name="PostTagID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileID" Type="Int32" Nullable="false" />
+    <Property Name="PostID" Type="Int32" Nullable="false" />
+    <Property Name="Tag" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="post" Relationship="TalentExpoModel.FK_post_tag_Post" FromRole="post_tag" ToRole="post" />
+    <NavigationProperty Name="profile" Relationship="TalentExpoModel.FK_post_tag_profile" FromRole="post_tag" ToRole="profile" />
+  </EntityType>
+  <EntityType Name="profile">
+    <Key>
+      <PropertyRef Name="ProfileRowID" />
+    </Key>
+    <Property Name="ProfileRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileID" Type="Guid" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="ProfileCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="ProfileName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="posts" Relationship="TalentExpoModel.FK_post_profile" FromRole="profile" ToRole="post" />
+    <NavigationProperty Name="post_comment" Relationship="TalentExpoModel.FK_post_comment_profile" FromRole="profile" ToRole="post_comment" />
+    <NavigationProperty Name="post_tag" Relationship="TalentExpoModel.FK_post_tag_profile" FromRole="profile" ToRole="post_tag" />
+    <NavigationProperty Name="profile_category" Relationship="TalentExpoModel.FK_profile_profile_category" FromRole="profile" ToRole="profile_category" />
+    <NavigationProperty Name="user" Relationship="TalentExpoModel.FK_profile_user" FromRole="profile" ToRole="user" />
+  </EntityType>
+  <EntityType Name="profile_category">
+    <Key>
+      <PropertyRef Name="ProfileCategoryRowID" />
+    </Key>
+    <Property Name="ProfileCategoryRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileCategoryID" Type="Guid" Nullable="false" />
+    <Property Name="ProfileCategoryName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="profiles" Relationship="TalentExpoModel.FK_profile_profile_category" FromRole="profile_category" ToRole="profile" />
+  </EntityType>
+  <EntityType Name="profile_member">
+    <Key>
+      <PropertyRef Name="ProfileMemberID" />
+    </Key>
+    <Property Name="ProfileMemberID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileID" Type="Int32" Nullable="false" />
+    <Property Name="MemberID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="RequestedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsAccepted" Type="Boolean" Nullable="false" />
+    <Property Name="AcceptedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="profile_setting">
+    <Key>
+      <PropertyRef Name="ProfileSettingID" />
+    </Key>
+    <Property Name="ProfileSettingID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileID" Type="Int32" Nullable="false" />
+    <Property Name="SettingID" Type="Int32" Nullable="false" />
+    <Property Name="SettingValue" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="profile_talent">
+    <Key>
+      <PropertyRef Name="ProfileTalentID" />
+    </Key>
+    <Property Name="ProfileTalentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileID" Type="Int32" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="right">
+    <Key>
+      <PropertyRef Name="RightRowID" />
+    </Key>
+    <Property Name="RightRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="RightID" Type="Guid" Nullable="false" />
+    <Property Name="RightName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="right_role">
+    <Key>
+      <PropertyRef Name="RightRoleRowID" />
+    </Key>
+    <Property Name="RightRoleRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="RightID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="RoleRowID" />
+    </Key>
+    <Property Name="RoleRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleID" Type="Guid" Nullable="false" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="setting">
+    <Key>
+      <PropertyRef Name="SettingID" />
+    </Key>
+    <Property Name="SettingID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="SettingCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="SettingDatatypeID" Type="Int32" Nullable="false" />
+    <Property Name="SettingName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DefaultValue" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IsHidden" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="setting_category">
+    <Key>
+      <PropertyRef Name="SettingCategoryID" />
+    </Key>
+    <Property Name="SettingCategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="SettingCategoryName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="setting_datatype">
+    <Key>
+      <PropertyRef Name="SettingDatatypeID" />
+    </Key>
+    <Property Name="SettingDatatypeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="DataTypeName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="talent">
+    <Key>
+      <PropertyRef Name="TalentRowID" />
+    </Key>
+    <Property Name="TalentRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TalentID" Type="Guid" Nullable="false" />
+    <Property Name="Talent1" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="UserRowID" />
+    </Key>
+    <Property Name="UserRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Guid" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LastLogonTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="profiles" Relationship="TalentExpoModel.FK_profile_user" FromRole="user" ToRole="profile" />
+  </EntityType>
+  <EntityType Name="user_role">
+    <Key>
+      <PropertyRef Name="UserRoleID" />
+    </Key>
+    <Property Name="UserRoleID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_setting">
+    <Key>
+      <PropertyRef Name="UserSettingID" />
+    </Key>
+    <Property Name="UserSettingID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="SettingID" Type="Int32" Nullable="false" />
+    <Property Name="SettingValue" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_category_category">
+    <End Role="category" Type="TalentExpoModel.category" Multiplicity="0..1" />
+    <End Role="category1" Type="TalentExpoModel.category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="CategoryRowID" />
+      </Principal>
+      <Dependent Role="category1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_post_category_category">
+    <End Role="category" Type="TalentExpoModel.category" Multiplicity="1" />
+    <End Role="post_category" Type="TalentExpoModel.post_category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="CategoryRowID" />
+      </Principal>
+      <Dependent Role="post_category">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_post_comment_Post">
+    <End Role="post" Type="TalentExpoModel.post" Multiplicity="1" />
+    <End Role="post_comment" Type="TalentExpoModel.post_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="post">
+        <PropertyRef Name="PostRowID" />
+      </Principal>
+      <Dependent Role="post_comment">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_post_profile">
+    <End Role="profile" Type="TalentExpoModel.profile" Multiplicity="1" />
+    <End Role="post" Type="TalentExpoModel.post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profile">
+        <PropertyRef Name="ProfileRowID" />
+      </Principal>
+      <Dependent Role="post">
+        <PropertyRef Name="ProfileID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_post_tag_Post">
+    <End Role="post" Type="TalentExpoModel.post" Multiplicity="1" />
+    <End Role="post_tag" Type="TalentExpoModel.post_tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="post">
+        <PropertyRef Name="PostRowID" />
+      </Principal>
+      <Dependent Role="post_tag">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_post_comment_post_comment">
+    <End Role="post_comment" Type="TalentExpoModel.post_comment" Multiplicity="0..1" />
+    <End Role="post_comment1" Type="TalentExpoModel.post_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="post_comment">
+        <PropertyRef Name="PostCommentRowID" />
+      </Principal>
+      <Dependent Role="post_comment1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_post_comment_profile">
+    <End Role="profile" Type="TalentExpoModel.profile" Multiplicity="1" />
+    <End Role="post_comment" Type="TalentExpoModel.post_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profile">
+        <PropertyRef Name="ProfileRowID" />
+      </Principal>
+      <Dependent Role="post_comment">
+        <PropertyRef Name="ProfileID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_post_tag_profile">
+    <End Role="profile" Type="TalentExpoModel.profile" Multiplicity="1" />
+    <End Role="post_tag" Type="TalentExpoModel.post_tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profile">
+        <PropertyRef Name="ProfileRowID" />
+      </Principal>
+      <Dependent Role="post_tag">
+        <PropertyRef Name="ProfileID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_profile_profile_category">
+    <End Role="profile_category" Type="TalentExpoModel.profile_category" Multiplicity="1" />
+    <End Role="profile" Type="TalentExpoModel.profile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profile_category">
+        <PropertyRef Name="ProfileCategoryRowID" />
+      </Principal>
+      <Dependent Role="profile">
+        <PropertyRef Name="ProfileCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_profile_user">
+    <End Role="user" Type="TalentExpoModel.user" Multiplicity="1" />
+    <End Role="profile" Type="TalentExpoModel.profile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserRowID" />
+      </Principal>
+      <Dependent Role="profile">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

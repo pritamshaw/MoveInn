@@ -1,0 +1,11 @@
+D:\Projects\TalentExpo\TalentExpo\TalentExpo.DAL\bin\Debug\TalentExpo.DAL.dll.config
+D:\Projects\TalentExpo\TalentExpo\TalentExpo.DAL\bin\Debug\TalentExpo.DAL.dll
+D:\Projects\TalentExpo\TalentExpo\TalentExpo.DAL\bin\Debug\TalentExpo.DAL.pdb
+D:\Projects\TalentExpo\TalentExpo\TalentExpo.DAL\bin\Debug\EntityFramework.dll
+D:\Projects\TalentExpo\TalentExpo\TalentExpo.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\TalentExpo\TalentExpo\TalentExpo.DAL\bin\Debug\LinqKit.dll
+D:\Projects\TalentExpo\TalentExpo\TalentExpo.DAL\bin\Debug\EntityFramework.xml
+D:\Projects\TalentExpo\TalentExpo\TalentExpo.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\TalentExpo\TalentExpo\TalentExpo.DAL\obj\Debug\TalentExpo.DAL.dll
+D:\Projects\TalentExpo\TalentExpo\TalentExpo.DAL\obj\Debug\TalentExpo.DAL.pdb
+D:\Projects\TalentExpo\TalentExpo\TalentExpo.DAL\obj\Debug\TalentExpo.DAL.csprojResolveAssemblyReference.cache

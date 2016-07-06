@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+      <dependencies>
+        <dependency id="~/Views/Shared/fonts" />
+        <dependency id="~/Views/Shared/react" />
+      </dependencies>
+  </metadata>
+</package>

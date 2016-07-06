@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Shared/_Layout/_Layout.cshtml";
+}
+
+<div>
+    @*<table id="grid-data" class="table table-condensed table-hover table-striped">*@
+    <table id="grid-basic" class="table table-condensed table-hover table-striped">
+        <thead>
+            <tr>
+                <th data-column-id="ID" data-visible=false>ID</th>
+                <th data-column-id="FirstName" data-order="asc" data-identifier="true">First Name</th>
+                <th data-column-id="LastName">Last Name</th>
+                <th data-column-id="Email">Email</th>
+                <th data-column-id="EmailVerified" data-formatter="chkVerified">Email Verified</th>
+                <th data-column-id="Zip" data-type="numeric">Zip</th>
+                <th data-column-id="BirthDate">Birth Date</th>
+                <th data-column-id="UserName">User Name</th>
+                <th data-column-id="AgreedToTermsDate">AgreedToTermsDate</th>
+                <th data-column-id="LastLogonTime">LastLogonTime</th>
+                <th data-column-id="IsActive" data-formatter="chkActive">IsActive</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: Users">
+            <tr>
+                <td data-bind="text: ID"></td>
+                <td data-bind="text: FirstName"></td>
+                <td data-bind="text: LastName"></td>
+                <td data-bind="text: Email"></td>
+                <td data-bind="text: EmailVerified"></td>
+                <td data-bind="text: Zip"></td>
+                <td data-bind="text: BirthDate"></td>
+                <td data-bind="text: UserName"></td>
+                <td data-bind="text: AgreedToTermsDate"></td>
+                <td data-bind="text: LastLogonTime"></td>
+                <td data-bind="text: IsActive"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<nav class="navbar navbar-fixed-bottom nav-footer">
+    <div class="container">
+        <div class="pull-right">
+            <div class="btn-group-sm" role="group">
+                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addModal" data-bind='click: change_popupAddMode(true)'><span class="glyphicon glyphicon-plus-sign"></span> Add</button>
+                <button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#addModal" data-bind='click: change_popupAddMode(false), enable: (selectedUser().RowID != 0)'><span class="glyphicon glyphicon-edit"></span>Modify</button>
+                <button type="button" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> Remove</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<!-- Modal -->
+<div id="addModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div>
+                    <h4 class="modal-title" data-bind="visible: popupAddMode">Create User</h4>
+                    <h4 class="modal-title" data-bind="visible: (popupAddMode() == false)">Modify Details</h4>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <form class="form-horizontal" role="form" data-bind="with: popupAddMode == true ? newUser() : selectedUser()">
+                            <fieldset>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="textinput">First Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder="Enter first name.." class="form-control" data-bind="value: FirstName">
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="textinput">Last Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder="Enter last name.." class="form-control" data-bind="value: LastName">
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="textinput">UserName</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder="Enter user name.." class="form-control" data-bind="value: UserName">
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="textinput">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder="xyz@icraonline.com" class="form-control" data-bind="value: Email">
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="textinput">Password</label>
+                                    <div class="col-sm-4">
+                                        <input type="password" placeholder="***********" class="form-control" data-bind="value: Password">
+                                    </div>
+
+                                    <label class="col-sm-2 control-label" for="textinput">Confirm</label>
+                                    <div class="col-sm-4">
+                                        <input type="password" placeholder="**********" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"></label>
+                                    <div class="col-sm-3">
+                                        <input id="chkVerified" type="checkbox" class="form-checkbox" data-bind="checked: EmailVerified" />
+                                        <label for="chkVerified">Verified</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"></label>
+                                    <div class="col-sm-3">
+                                        <input id="chkActive" class="form-checkbox" type="checkbox" data-bind="checked: IsActive" />
+                                        <label for="chkActive">Active</label>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </form>
+</div><!-- /.row -->
+            </div>
+            <div class="modal-footer">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-sm btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span> Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-primary" data-bind="click: popupAddMode == true ? addUser : updateUser"><span class="glyphicon glyphicon-save"></span> Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
