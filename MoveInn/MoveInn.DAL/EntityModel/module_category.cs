@@ -17,8 +17,8 @@ namespace MoveInn.DAL.EntityModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public module_category()
         {
-            this.modules = new HashSet<module>();
             this.module_category1 = new HashSet<module_category>();
+            this.modules = new HashSet<module>();
         }
     
         public int RowID { get; set; }
@@ -33,9 +33,9 @@ namespace MoveInn.DAL.EntityModel
         public bool IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<module> modules { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<module_category> module_category1 { get; set; }
         public virtual module_category module_category2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<module> modules { get; set; }
     }
 }

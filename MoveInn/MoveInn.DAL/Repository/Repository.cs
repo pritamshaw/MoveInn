@@ -14,10 +14,10 @@ namespace MoveInn.DAL.Repository
     public class Repository<T> : IRepository<T>
           where T : class
     {
-        protected EMSEntities _entities;
+        protected MoveInnEntities _entities;
         protected readonly IDbSet<T> _dbset;
 
-        public Repository(EMSEntities context)
+        public Repository(MoveInnEntities context)
         {
             _entities = context;
             _dbset = context.Set<T>();

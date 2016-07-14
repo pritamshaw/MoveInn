@@ -25,7 +25,7 @@ namespace MoveInn.DAL.EntityModel
         public int ModifiedBy { get; set; }
         public bool IsActive { get; set; }
     
-        public virtual @event @event { get; set; }
         public virtual setting setting { get; set; }
+        public virtual @event @event { get; set; }
     }
 }

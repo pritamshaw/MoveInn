@@ -14,14 +14,14 @@ namespace MoveInn.DAL.UOW
     {
         public UnitOfWork()
         {
-            _dbContext = new EMSEntities();
+            _dbContext = new MoveInnEntities();
         }
 
-        public UnitOfWork(EMSEntities context)
+        public UnitOfWork(MoveInnEntities context)
         {
             _dbContext = context;
         }
-        private EMSEntities _dbContext;
+        private MoveInnEntities _dbContext;
         private Hashtable _repositories;
         //private GenericRepository<category> _Categories;
         //private GenericRepository<@event> _Events;

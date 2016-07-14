@@ -13,10 +13,10 @@ namespace MoveInn.DAL.EntityModel
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EMSEntities : DbContext
+    public partial class MoveInnEntities : DbContext
     {
-        public EMSEntities()
-            : base("name=EMSEntities")
+        public MoveInnEntities()
+            : base("name=MoveInnEntities")
         {
         }
     
@@ -25,32 +25,32 @@ namespace MoveInn.DAL.EntityModel
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<@event> events { get; set; }
         public virtual DbSet<event_category> event_category { get; set; }
         public virtual DbSet<event_participation> event_participation { get; set; }
         public virtual DbSet<event_setting> event_setting { get; set; }
-        public virtual DbSet<module> modules { get; set; }
+        public virtual DbSet<@event> events { get; set; }
         public virtual DbSet<module_category> module_category { get; set; }
+        public virtual DbSet<module> modules { get; set; }
         public virtual DbSet<participation_category> participation_category { get; set; }
-        public virtual DbSet<post> posts { get; set; }
         public virtual DbSet<post_category> post_category { get; set; }
         public virtual DbSet<post_comment> post_comment { get; set; }
         public virtual DbSet<post_notify> post_notify { get; set; }
         public virtual DbSet<post_tag> post_tag { get; set; }
-        public virtual DbSet<profile> profiles { get; set; }
+        public virtual DbSet<post> posts { get; set; }
         public virtual DbSet<profile_category> profile_category { get; set; }
         public virtual DbSet<profile_member> profile_member { get; set; }
         public virtual DbSet<profile_module> profile_module { get; set; }
         public virtual DbSet<profile_setting> profile_setting { get; set; }
-        public virtual DbSet<right> rights { get; set; }
+        public virtual DbSet<profile> profiles { get; set; }
         public virtual DbSet<right_role> right_role { get; set; }
+        public virtual DbSet<right> rights { get; set; }
         public virtual DbSet<role> roles { get; set; }
-        public virtual DbSet<setting> settings { get; set; }
         public virtual DbSet<setting_category> setting_category { get; set; }
         public virtual DbSet<setting_datatype> setting_datatype { get; set; }
+        public virtual DbSet<setting> settings { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<user> users { get; set; }
         public virtual DbSet<user_role> user_role { get; set; }
         public virtual DbSet<user_setting> user_setting { get; set; }
+        public virtual DbSet<user> users { get; set; }
     }
 }

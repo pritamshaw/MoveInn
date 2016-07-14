@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using MoveInn.BAL.Interfaces;
 using MoveInn.BAL.Models;
 using MoveInn.BAL.Services;
-using MoveInn.DAL.Interfaces;
 
 namespace MoveInn.UI.Controllers
 {

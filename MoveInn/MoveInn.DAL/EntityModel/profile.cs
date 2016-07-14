@@ -18,10 +18,10 @@ namespace MoveInn.DAL.EntityModel
         public profile()
         {
             this.event_participation = new HashSet<event_participation>();
-            this.posts = new HashSet<post>();
             this.post_comment = new HashSet<post_comment>();
             this.post_notify = new HashSet<post_notify>();
             this.post_tag = new HashSet<post_tag>();
+            this.posts = new HashSet<post>();
             this.profile_member = new HashSet<profile_member>();
             this.profile_module = new HashSet<profile_module>();
             this.profile_setting = new HashSet<profile_setting>();
@@ -41,19 +41,19 @@ namespace MoveInn.DAL.EntityModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<event_participation> event_participation { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<post> posts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<post_comment> post_comment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<post_notify> post_notify { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<post_tag> post_tag { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<post> posts { get; set; }
+        public virtual profile_category profile_category { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<profile_member> profile_member { get; set; }
         public virtual profile_member profile_member1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<profile_module> profile_module { get; set; }
-        public virtual profile_category profile_category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<profile_setting> profile_setting { get; set; }
         public virtual user user { get; set; }

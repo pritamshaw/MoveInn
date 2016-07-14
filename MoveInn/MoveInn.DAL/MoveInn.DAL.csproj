@@ -55,101 +55,101 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityModel\EMSModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EMSModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModel\EMSModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EMSModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModel\EMSModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EMSModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="EntityModel\event.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\event_category.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\event_participation.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\event_setting.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\module.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\module_category.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MoveInnModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MoveInnModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MoveInnModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MoveInnModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MoveInnModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\participation_category.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\post.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\post_category.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\post_comment.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\post_notify.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\post_tag.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\profile.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\profile_category.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\profile_member.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\profile_module.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\profile_setting.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\right.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\right_role.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\role.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\setting.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\setting_category.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\setting_datatype.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\sysdiagram.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\user.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\user_role.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\user_setting.cs">
-      <DependentUpon>EMSModel.tt</DependentUpon>
+      <DependentUpon>MoveInnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
@@ -159,22 +159,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="EntityModel\EMSModel.edmx">
+    <EntityDeploy Include="EntityModel\MoveInnModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EMSModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>MoveInnModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="EntityModel\EMSModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EMSModel.edmx</DependentUpon>
-      <LastGenOutput>EMSModel.Context.cs</LastGenOutput>
-    </None>
-    <None Include="EntityModel\EMSModel.edmx.diagram">
-      <DependentUpon>EMSModel.edmx</DependentUpon>
-    </None>
-    <None Include="EntityModel\EMSModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EMSModel.edmx</DependentUpon>
-      <LastGenOutput>EMSModel.cs</LastGenOutput>
+    <None Include="EntityModel\MoveInnModel.edmx.diagram">
+      <DependentUpon>MoveInnModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -182,6 +172,18 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="EntityModel\MoveInnModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MoveInnModel.edmx</DependentUpon>
+      <LastGenOutput>MoveInnModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityModel\MoveInnModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MoveInnModel.edmx</DependentUpon>
+      <LastGenOutput>MoveInnModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

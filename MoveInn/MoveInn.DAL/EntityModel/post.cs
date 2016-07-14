@@ -38,13 +38,13 @@ namespace MoveInn.DAL.EntityModel
         public int ModifiedBy { get; set; }
         public bool IsActive { get; set; }
     
+        public virtual post_category post_category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<post_comment> post_comment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<post_notify> post_notify { get; set; }
-        public virtual post_category post_category { get; set; }
-        public virtual profile profile { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<post_tag> post_tag { get; set; }
+        public virtual profile profile { get; set; }
     }
 }
